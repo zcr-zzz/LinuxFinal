@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class App {
+public class APP {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://180.76.189.28/linux_final";
     static final String USER = "root";
@@ -17,12 +17,12 @@ public class App {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
-            String sql = "SELECT id,name FROM t_student";
+            String sql = "SELECT id ,name FROM t_student where id=4";
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-            System.out.printf("id: %d,name: %s",id,name);
+            System.out.printf("id: %d,name: %s", id, name);
             }
             rs.close();
             stmt.close();
